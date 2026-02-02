@@ -1,0 +1,44 @@
+# general
+device: "cuda:xxx"
+# training:
+epochs: 300
+pretrain_epochs: 300
+ft_epochs: 300
+batch_size: 2
+learning_rate: 0.0001 #1e-4
+weight_decay: 0.00001 #1e-5
+mllm_emb_epoch: '0999'
+test_epoch: 100
+# data:
+dataset: nyc
+seq_len_long: 48
+seq_len_short: 12
+split_rule: 'Random'      # Boundary, Expansion, Random
+split_ratio: 0.7          # 0.7, 0.6, 0.5 (train)
+target_domain: 'taxi_flow'  # bike_flow, taxi_flow, service, crime
+# transform:
+use_stft: false
+delay_long: 3
+embedding_long: 16
+delay_short: 3
+embedding_short: 4
+embedding: 16
+delay: 3
+# model:
+model: 'UniDiff'
+img_resolution_long: 16
+img_resolution_short: 4
+img_resolution: 16
+input_resolution: 16
+input_channels: 1
+unet_channels: 128
+ch_mult: [1,2,4,4]
+attn_resolution: [32,16,8]
+diffusion_steps: 18
+ema: true
+ema_warmup: 100
+tau: 0.05 # 0.05
+lambda_cons: 0.01
+# logging:
+logging_iter: 100
+
